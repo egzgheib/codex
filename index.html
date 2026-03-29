@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fitness Goal Tracker</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header>
+        <h1>Fitness Goal Tracker</h1>
+        <p>Define a goal and break it into trackable steps.</p>
+      </header>
+
+      <section class="card">
+        <h2>Create a Goal</h2>
+        <form id="goal-form">
+          <label for="goal-name">Goal name</label>
+          <input id="goal-name" name="goal-name" type="text" placeholder="Run a 5K in under 30 minutes" required />
+
+          <label for="goal-deadline">Target date (optional)</label>
+          <input id="goal-deadline" name="goal-deadline" type="date" />
+
+          <label for="goal-step">Step</label>
+          <div class="row">
+            <input id="goal-step" type="text" placeholder="Run 2 miles three times this week" />
+            <button type="button" id="add-step-btn">Add Step</button>
+          </div>
+
+          <ul id="step-draft-list" class="step-list"></ul>
+
+          <button type="submit" class="primary">Save Goal</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <div class="list-header">
+          <h2>Your Goals</h2>
+          <button id="clear-all-btn" type="button" class="danger">Clear All</button>
+        </div>
+        <div id="goals-container" class="goals-container">
+          <p class="empty">No goals yet. Add your first one above.</p>
+        </div>
+      </section>
+    </main>
+
+    <template id="goal-template">
+      <article class="goal-item">
+        <div class="goal-top">
+          <h3 class="goal-title"></h3>
+          <p class="goal-meta"></p>
+        </div>
+        <div class="progress-wrapper">
+          <div class="progress-bar"><span></span></div>
+          <p class="progress-label"></p>
+        </div>
+        <ul class="step-list completed-list"></ul>
+      </article>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
